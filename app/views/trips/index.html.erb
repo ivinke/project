@@ -1,0 +1,54 @@
+<div class="page-header">
+  <h1>Trips</h1>
+</div>
+
+<p><a href="/trips/new" class="btn btn-primary">Add a New Trip</a></p>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>From city</th>
+      <th>To city</th>
+      <th>User</th>
+      <th>Time</th>
+      <th>Cost</th>
+      <th>Notes</th>
+      <th>Photo</th>
+      <th>Transportation</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @trips.each do |trip| %>
+      <tr>
+        <td><%= trip.from_city.name %></td>
+        <td><%= trip.to_city.name %></td>
+        <td><%= trip.user.username %></td>
+        <td><%= trip.time %></td>
+        <td><%= trip.cost %></td>
+        <td><%= trip.notes %></td>
+        <td><%= trip.photo %></td>
+        <td><%= trip.transportation %></td>
+        <td>
+          <a href="/trips/<%= trip.id %>" class="btn btn-primary">
+            <i class="fa fa-search-plus"></i>
+          </a>
+        </td>
+        <td>
+          <a href="/trips/<%= trip.id %>/edit" class="btn btn-warning">
+            <i class="fa fa-edit"></i>
+          </a>
+        </td>
+        <td>
+          <a href="/delete_trip/<%= trip.id %>" class="btn btn-danger">
+            <i class="fa fa-trash-o"></i>
+          </a>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
