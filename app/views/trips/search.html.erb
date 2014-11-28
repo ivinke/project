@@ -1,31 +1,54 @@
-
 <div class="page-header">
-  <h1>Trip #<%= @trip.id %></h1>
+  <h1>Trips</h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt>From city</dt>
-  <dd><%= @trip.from_city_id %></dd>
+<p><a href="/trips/new" class="btn btn-primary">Add a New Trip</a></p>
 
-  <dt>To city</dt>
-  <dd><%= @trip.to_city_id %></dd>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>From city</th>
+      <th>To city</th>
+      <th>User</th>
+      <th>Time</th>
+      <th>Cost</th>
+      <th>Notes</th>
+      <th>Photo</th>
+      <th>Transportation</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
 
-  <dt>User</dt>
-  <dd><%= @trip.user_id %></dd>
 
-  <dt>Time</dt>
-  <dd><%= @trip.time %></dd>
-
-  <dt>Cost</dt>
-  <dd><%= @trip.cost %></dd>
-
-  <dt>Notes</dt>
-  <dd><%= @trip.notes %></dd>
-
-  <dt>Photo</dt>
-  <dd><%= @trip.photo %></dd>
-
-  <dt>Transportation</dt>
-  <dd><%= @trip.transportation %></dd>
-
-</dl>
+<tbody>
+    <% @tripsnew.each do |trip| %>
+      <tr>
+        <td><%= trip.from_city.name %></td>
+        <td><%= trip.to_city.name %></td>
+        <td><%= trip.user.email %></td>
+        <td><%= trip.time %></td>
+        <td><%= trip.cost %></td>
+        <td><%= trip.notes %></td>
+        <td><%= trip.photo %></td>
+        <td><%= trip.transportation %></td>
+        <td>
+          <a href="/trips/<%= trip.id %>" class="btn btn-primary">
+            <i class="fa fa-search-plus"></i>
+          </a>
+        </td>
+        <td>
+          <a href="/trips/<%= trip.id %>/edit" class="btn btn-warning">
+            <i class="fa fa-edit"></i>
+          </a>
+        </td>
+        <td>
+          <a href="/delete_trip/<%= trip.id %>" class="btn btn-danger">
+            <i class="fa fa-trash-o"></i>
+          </a>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+  </table>

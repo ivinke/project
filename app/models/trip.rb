@@ -9,6 +9,15 @@ class Trip < ActiveRecord::Base
 
   validates :transportation, :presence => true
 
+  #custom validation
+  validate :unique_to_from_city
+
+  def unique_to_from_city
+    if from_city_id == to_city_id
+      errors.add(:from_city, "cannot be the same as to_city")
+    end
+  end
+
   def from_city
      City.find(from_city_id)
 

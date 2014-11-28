@@ -4,13 +4,13 @@
 
 <dl class="dl-horizontal">
   <dt>From city</dt>
-  <dd><%= @trip.from_city_id %></dd>
+  <dd> <%= @trip.from_city.name %></dd>
 
   <dt>To city</dt>
-  <dd><%= @trip.to_city_id %></dd>
+  <dd><%= @trip.to_city.name %></dd>
 
   <dt>User</dt>
-  <dd><%= @trip.user_id %></dd>
+  <dd><%= @trip.user.email %></dd>
 
   <dt>Time</dt>
   <dd><%= @trip.time %></dd>
@@ -28,3 +28,50 @@
   <dd><%= @trip.transportation %></dd>
 
 </dl>
+
+<div class="page-header">
+  <h1>Add Rating</h1>
+</div>
+
+
+
+<form action="/create_rating" class="form-horizontal">
+  <!-- Label and input for user_id -->
+  <div class="form-group">
+    <label for="user_id" class="col-sm-2 control-label">
+      User
+    </label>
+    <div class="col-sm-10">
+      <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= current_user.email %>">
+    </div>
+  </div>
+
+  <!-- Label and input for trip_id -->
+  <div class="form-group">
+    <label for="trip_id" class="col-sm-2 control-label">
+      Trip
+    </label>
+    <div class="col-sm-10">
+      <input type="text" id="trip_id" name="trip_id" placeholder="Trip" class="form-control" value="<%= @trip.id %>">
+    </div>
+  </div>
+
+  <!-- Label and input for points -->
+  <div class="form-group">
+    <label for="points" class="col-sm-2 control-label">
+      Points
+    </label>
+    <div class="col-sm-10">
+       <%= select_tag(:points, options_for_select(["1", "2", "3", "4", "5"]), :class => "form-control") %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <input type="submit" value="Create Rating" class="btn btn-primary">
+    </div>
+  </div>
+</form>
+
+
+

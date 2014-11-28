@@ -1,4 +1,4 @@
-class TripsController < ApplicationController
+ class TripsController < ApplicationController
   def index
     @trips = Trip.all
   end
@@ -60,9 +60,20 @@ class TripsController < ApplicationController
     redirect_to "/trips", :notice => "Trip deleted."
   end
 
-
-
   def search
-    @trip = Trip.find(params[:id])
+
+    @cityfrom = City.find_by({ :name => params[:first_city].downcase })
+    @cityto = City.find_by({ :name => params[:second_city].downcase })
+
+    if @cityto.present? && @cityfrom.present?
+      @tripsnew = Trip.where({ :from_city_id => @cityfrom.id, :to_city_id => @cityto.id })
+    end
+
+    if @tripsnew.present?
+      render "search"
+    else
+      redirect_to "/", :notice => "No trip has been done between those cities."
+    end
+
   end
 end
