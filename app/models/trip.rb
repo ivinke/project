@@ -1,6 +1,7 @@
 class Trip < ActiveRecord::Base
   belongs_to :user
   has_many :cities
+  has_many :ratings
 
   validates :from_city_id, :presence => true
   validates :to_city_id, :presence => true
@@ -20,11 +21,10 @@ class Trip < ActiveRecord::Base
 
   def from_city
      City.find(from_city_id)
-
   end
 
   def to_city
-      City.find(to_city_id)
+     City.find(to_city_id)
   end
 
 end

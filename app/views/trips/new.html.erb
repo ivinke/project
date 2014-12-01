@@ -81,9 +81,9 @@
     <div class="col-sm-10">
       <div class="panel-body">
                 <div class="form-group">
-                  <label for="exampleInputFile">File input</label>
-                  <input type="file" id="exampleInputFile">
-                </div>
+                  <label for="photo">Photo URL</label>
+                  <input type="text" id="photo" name="photo" placeholder="Photo" class="form-control" value="<%= @trip.photo %>">
+               </div>
               </div>
     </div>
   </div>
@@ -98,9 +98,30 @@
     </div>
   </div>
 
+
+  <!-- Label and input for user_id -->
+      <input type="hidden" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= current_user.id %>">
+
+  <!-- Label and input for trip_id -->
+      <input type="hidden" id="trip_id" name="trip_id" placeholder="Trip" class="form-control" value="<%= @trip.id %>">
+
+
+  <!-- Label and input for points -->
+  <div class="form-group">
+    <label for="average_rating" class="col-sm-2 control-label">
+      Points
+    </label>
+    <div class="col-sm-10">
+       <%= select_tag(:average_rating, options_for_select(["1", "2", "3", "4", "5"]), :class => "form-control") %>
+    </div>
+  </div>
+
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <input type="submit" value="Create Trip" class="btn btn-primary">
     </div>
   </div>
+
+
 </form>
+

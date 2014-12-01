@@ -15,6 +15,7 @@
       <th>Notes</th>
       <th>Photo</th>
       <th>Transportation</th>
+      <th>Average Rating</th>
       <th></th>
       <th></th>
       <th></th>
@@ -30,8 +31,9 @@
         <td><%= trip.time %></td>
         <td><%= trip.cost %></td>
         <td><%= trip.notes %></td>
-        <td><%= trip.photo %></td>
+        <td><a class="thumbnail"><img src="<%= trip.photo %>"></a></td>
         <td><%= trip.transportation %></td>
+        <td><%= trip.average_rating %></td>
         <td>
           <a href="/trips/<%= trip.id %>" class="btn btn-primary">
             <i class="fa fa-search-plus"></i>
@@ -48,7 +50,12 @@
           </a>
         </td>
       </tr>
+
+
     <% end %>
   </tbody>
 </table>
+
+
+
 

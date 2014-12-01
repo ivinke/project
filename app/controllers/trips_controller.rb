@@ -5,6 +5,7 @@
 
   def show
     @trip = Trip.find(params[:id])
+
   end
 
   def new
@@ -21,6 +22,7 @@
     @trip.notes = params[:notes]
     @trip.photo = params[:photo]
     @trip.transportation = params[:transportation]
+    @trip.average_rating = params[:average_rating]
 
     if @trip.save
       redirect_to "/trips", :notice => "Trip created successfully."
@@ -44,6 +46,9 @@
     @trip.notes = params[:notes]
     @trip.photo = params[:photo]
     @trip.transportation = params[:transportation]
+    @trip.average_rating = params[:average_rating]
+
+
 
     if @trip.save
       redirect_to "/trips", :notice => "Trip updated successfully."
