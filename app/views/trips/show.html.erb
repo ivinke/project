@@ -6,22 +6,20 @@
 
   <div class="container">
 
+      <div class="well form-inline">
+      <div class = "col-sm-6">
 
-      <div class = "row">
-        <div style = "background-image: url(<%= @trip.photo %>); height: 520px; width: 580px; border: 1px solid black;"  class="col-sm-6">
+        <div style = "background-image: url(<%= @trip.photo %>); height: 500px; width: 500px; border: 1px solid black;">
         </div>
-
-        <div class = "col-sm-6">
-          <div class="well form-inline">
+      </div>
+      <div class = "col-sm-6">
             <div class = "row">
               <div class = "col-sm-6">
                 <div class="panel panel-default">
                   <div class="panel-heading">
-                    <h3 class="panel-title">From:</h3>
+                    <h3 class="panel-title">From:   <%= @trip.from_city.name.capitalize %></h3>
                   </div>
-                  <div class="panel-body">
-                    <%= @trip.from_city.name %>
-                  </div>
+
                 </div>
               </div>
 
@@ -29,11 +27,9 @@
               <div class = "col-sm-6">
                 <div class="panel panel-default">
                   <div class="panel-heading">
-                    <h3 class="panel-title">To:</h3>
+                    <h3 class="panel-title">To: <%= @trip.to_city.name.capitalize %></h3>
                   </div>
-                  <div class="panel-body">
-                    <%= @trip.to_city.name %>
-                  </div>
+
                 </div>
               </div>
             </div>
@@ -57,10 +53,7 @@
               <div class = "col-sm-6">
                 <div class="panel panel-default">
                   <div class="panel-heading">
-                    <h3 class="panel-title">Price ($)</h3>
-                  </div>
-                  <div class="panel-body">
-                  <%= @trip.cost %>
+                    <h3 class="panel-title">Price ($): <%= @trip.cost %></h3>
                   </div>
                 </div>
               </div>
@@ -68,10 +61,7 @@
               <div class = "col-sm-6">
                 <div class="panel panel-default">
                   <div class="panel-heading">
-                    <h3 class="panel-title">Time (Hours)</h3>
-                  </div>
-                  <div class="panel-body">
-                    <%= @trip.time %>
+                    <h3 class="panel-title">Time (Hours): <%= @trip.time %></h3>
                   </div>
                 </div>
               </div>
@@ -101,6 +91,8 @@
                 </div>
               </div>
             </div>
+
+
 
               <div class = "row">
                <div class = "col-sm-6">
@@ -136,8 +128,19 @@
                   </div>
                   </div>
                 </div>
+
+                <div class = "col-sm-6">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Average Rating</h3>
+                  </div>
+                  <div class="panel-body">
+                  <%= @trip.ratings.average(:points) %>
+                  </div>
+                </div>
               </div>
-            </div>
+
+              </div>
             </div>
             </div>
 
@@ -147,7 +150,7 @@
 
 
 
-
+          <h1></h1>
 
 
 

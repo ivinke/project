@@ -76,12 +76,11 @@
   <!-- Label and input for photo -->
   <div class="form-group">
     <label for="photo" class="col-sm-2 control-label">
-      Photo
+      Photo URL
     </label>
     <div class="col-sm-10">
       <div class="panel-body">
                 <div class="form-group">
-                  <label for="photo">Photo URL</label>
                   <input type="text" id="photo" name="photo" placeholder="Photo" class="form-control" value="<%= @trip.photo %>">
                </div>
               </div>
@@ -94,7 +93,7 @@
       Transportation
     </label>
     <div class="col-sm-10">
-    <%= select_tag(:transportation, options_for_select(["Bus", "Car", "Airplane"]), :class => "form-control") %>
+    <%= select_tag(:transportation, options_for_select(["Bus", "Balloon", "Boat / Ferry", "Car", "Airplane", "Bicycle",  "Other"]), :class => "form-control") %>
     </div>
   </div>
 

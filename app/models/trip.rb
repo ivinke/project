@@ -2,6 +2,7 @@ class Trip < ActiveRecord::Base
   belongs_to :user
   has_many :cities
   has_many :ratings
+  has_many :users_who_have_rated, :through => :ratings, :source => :user
 
   validates :from_city_id, :presence => true
   validates :to_city_id, :presence => true
