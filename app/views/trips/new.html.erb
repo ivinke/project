@@ -107,19 +107,17 @@
 
   <!-- Label and input for points -->
   <div class="form-group">
-    <label for="average_rating" class="col-sm-2 control-label">
+    <label for="points" class="col-sm-2 control-label">
       Points
     </label>
     <div class="col-sm-10">
-       <%= select_tag(:average_rating, options_for_select(["1", "2", "3", "4", "5"]), :class => "form-control") %>
+      <%= select_tag(:points, options_for_select(["1", "2", "3", "4", "5"]), :class => "form-control") %>
     </div>
   </div>
 
   <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <input type="submit" value="Create Trip" class="btn btn-primary">
-    </div>
-  </div>
+                          <input type="submit" value="Create Rating" class="btn btn-primary">
+                      </div>
 
 
 </form>
